@@ -1,15 +1,28 @@
-function updateClock() {
+const updateClock = () => {
     const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-
-    const timeString = `${hours}:${minutes}:${seconds}`;
-    document.getElementById('time').textContent = timeString;
+    var hours = now.getHours()
+    const minutes = now.getMinutes()
+    const seconds = now.getSeconds()
+    
+    var ampm = 'AM'
+    if (hours > 12){
+        hours -= 12
+        ampm = 'PM'
+    }
+    if(hours == 0)
+    {
+        hours = 12
+    }
+    if (hours < 10)
+    {
+        hours = "0" + hours
+    }
+    
+    document.getElementById('hr').innerHTML = hours
+    document.getElementById('mn').innerHTML = minutes
+    document.getElementById('se').innerHTML = seconds
+    document.getElementById('ampm').innerHTML = ampm
 }
-
-// Update the clock every second
 setInterval(updateClock, 1000);
 
-// Initial call to set the clock immediately on page load
 updateClock();
