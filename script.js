@@ -4,19 +4,7 @@ const updateClock = () => {
     const minutes = now.getMinutes()
     const seconds = now.getSeconds()
     
-    var ampm = 'AM'
-    if (hours > 12){
-        hours -= 12
-        ampm = 'PM'
-    }
-    if(hours == 0)
-    {
-        hours = 12
-    }
-    if (hours < 10)
-    {
-        hours = "0" + hours
-    }
+    
     
     document.getElementById('hr').innerHTML = hours
     document.getElementById('mn').innerHTML = minutes
